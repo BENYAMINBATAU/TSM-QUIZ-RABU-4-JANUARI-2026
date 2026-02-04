@@ -207,19 +207,36 @@
     }
 
     function showResult() {
-        document.getElementById('quiz-screen').classList.add('hidden');
-        document.getElementById('result-screen').classList.remove('hidden');
-        document.getElementById('display-name').innerText = studentName;
-        document.getElementById('final-score').innerText = score;
-        
-        let status = score >= 75 ? "LULUS" : "TIDAK LULUS / REMEDIAL";
-        document.getElementById('status-text').innerText = status;
-        document.getElementById('status-text').style.color = score >= 75 ? "#16a34a" : "#dc2626";
+    document.getElementById('quiz-screen').classList.add('hidden');
+    document.getElementById('result-screen').classList.remove('hidden');
+    document.getElementById('display-name').innerText = studentName;
+    document.getElementById('final-score').innerText = score;
 
-        // MENGIRIM DATA KE GOOGLE APPS SCRIPT (OPSIONAL)
-        // google.script.run.simpanSkor(studentName, score);
-    }
+    // URL Web App Anda
+    const urlWebApp = "https://script.google.com/macros/s/AKfycbzn2lm1LZ72NsD6cgxSpjhIPHkHRu_u9ueqbtNePX_O6DP6tqiPFpg8Qbhv6r-dLU7F/exec";
+
+    // Kirim data ke Google Sheets
+    fetch(urlWebApp, {
+        method: "POST",
+        mode: "no-cors", 
+        cache: "no-cache",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            nama: studentName,
+            skor: score
+        })
+    })
+    .then(() => {
+        console.log("Rekap nilai berhasil dikirim ke Google Sheets.");
+    })
+    .catch((error) => {
+        console.error("Gagal mengirim data:", error);
+    });
+}
 </script>
 
 </body>
+
 </html>
