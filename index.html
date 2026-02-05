@@ -2,12 +2,12 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEST PENGECATAN - SPRA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>UJIAN KELISTRIKAN INJEKSI - SMKN 1 SUMARORONG</title>
     <style>
         :root {
             --primary: #1e293b;
-            --accent: #2563eb;
+            --accent: #dc2626; /* Merah Honda */
             --danger: #dc2626;
             --bg: #f8fafc;
         }
@@ -83,14 +83,15 @@
             transition: 0.2s;
         }
 
-        .option-btn:hover { border-color: var(--accent); background: #eff6ff; }
+        .option-btn:hover { border-color: var(--accent); background: #fef2f2; }
 
         .progress-bar {
-            height: 10px;
+            height: 100%;
             background: #e2e8f0;
             border-radius: 5px;
             margin: 20px 0;
             overflow: hidden;
+            height: 10px;
         }
 
         .progress-fill {
@@ -107,7 +108,8 @@
 
 <div class="container">
     <div id="start-screen">
-        <h1 style="margin-bottom: 5px;">TEST PENGECATAN</h1>
+        <h1 style="margin-bottom: 5px; font-size: 1.5rem;">KELISTRIKAN INJEKSI PGM-FI</h1>
+        <p style="margin-top: 0; font-weight: bold; color: #64748b;">Materi: Honda CBR & Sonic 150R</p>
         <div class="warning-box">
             GREGORIUS, HENDRIK, THEOPILUS, RICHARD,<br>
             JAGA KEHADIRAN, JANGAN SAMPAI ANDA TINGGAL KELAS!
@@ -121,7 +123,7 @@
         <div id="q-number" style="font-weight: bold; color: var(--accent);">Soal 1 / 20</div>
         <div class="progress-bar"><div id="progress" class="progress-fill"></div></div>
         <div class="question-box">
-            <p id="q-text" style="font-weight: bold; font-size: 1.2rem; text-align: left;"></p>
+            <p id="q-text" style="font-weight: bold; font-size: 1.1rem; text-align: left; line-height: 1.4;"></p>
             <div id="options-container"></div>
         </div>
     </div>
@@ -131,33 +133,33 @@
         <p id="display-name" style="font-size: 1.2rem; margin-bottom: 0;"></p>
         <div class="score-val" id="final-score">0</div>
         <p id="status-text" style="font-weight: bold;"></p>
-        <p style="color: #64748b; font-size: 0.8rem;">Data nilai telah dikirim ke sistem rekapitulasi.</p>
+        <p style="color: #64748b; font-size: 0.8rem;">Data nilai BENYAMIN BATAU APP telah dikirim ke sistem.</p>
         <button class="btn" onclick="location.reload()">KEMBALI KE AWAL</button>
     </div>
 </div>
 
 <script>
     const quizData = [
-        { q: "Apa fungsi utama dari cat dasar (primer)?", a: 1, o: ["Memberi efek kilap", "Meningkatkan daya rekat cat", "Melindungi dari baret", "Menghilangkan penyok"] },
-        { q: "Penyebab utama cat dasar peeling (terkelupas)?", a: 1, o: ["Tekanan angin tinggi", "Permukaan kotor/berminyak", "Suhu terlalu dingin", "Cat terlalu mahal"] },
-        { q: "Masalah bintik 'mata ikan' disebabkan kontaminasi?", a: 1, o: ["Debu kayu", "Minyak/Silikon", "Cat kental", "Jarak dekat"] },
-        { q: "Berapa perbandingan standar Epoxy : Thinner?", a: 2, o: ["1:1", "1:4", "4:1", "1:10"] },
-        { q: "Penyebab cat meler (running)?", a: 2, o: ["Thinner lambat", "Jarak jauh", "Lapisan terlalu tebal", "Angin kecil"] },
-        { q: "Cara mengatasi cat 'kulit jeruk'?", a: 1, o: ["Langsung ditimpa", "Amplas halus & cat ulang", "Tambah tekanan angin", "Cuci sabun"] },
-        { q: "Nomor amplas untuk menghaluskan cat dasar?", a: 1, o: ["100", "400 - 800", "2000", "50"] },
-        { q: "Cat dasar tetap lengket karena?", a: 1, o: ["Thinner sedikit", "Takaran hardener salah", "Banyak angin", "Merk mahal"] },
-        { q: "Risiko menimpa cat dasar yang belum kering?", a: 1, o: ["Lebih kilap", "Timbul gelembung (blistering)", "Cat dasar hilang", "Warna pudar"] },
-        { q: "Alat pemisah air di kompresor?", a: 0, o: ["Air Filter/Regulator", "Spray Gun", "Thinner", "Masker"] },
-        { q: "Penyebab 'Cracking' (cat pecah)?", a: 1, o: ["Terlalu encer", "Beda jenis bahan (Lacquer vs Enamel)", "Jarak jauh", "Merk sama"] },
-        { q: "Keunggulan Epoxy Primer?", a: 1, o: ["Warna gelap", "Tahan karat & rekat kuat", "Cepat kering", "Murah"] },
-        { q: "Jarak semprot ideal cat dasar?", a: 1, o: ["5 cm", "15 - 25 cm", "50 cm", "1 meter"] },
-        { q: "Hasil semprotan berdebu (overspray) karena?", a: 1, o: ["Angin rendah", "Jarak terlalu jauh", "Terlalu encer", "Nozzle buntu"] },
-        { q: "Warna cat dasar paling netral?", a: 1, o: ["Merah", "Abu-abu", "Kuning", "Hijau"] },
-        { q: "Fungsi Plastic Primer?", a: 1, o: ["Cepat kering", "Agar cat tidak ngelupas di plastik", "Cegah meleleh", "Kilapkan plastik"] },
-        { q: "Penyebab cat dasar kusam?", a: 0, o: ["Pengadukan tidak sempurna", "Thinner mahal", "Pakai sarung tangan", "Cuci motor"] },
-        { q: "Tindakan jika cat keriting?", a: 1, o: ["Tutup dempul", "Kupas total & ulangi", "Jemur", "Siram bensin"] },
-        { q: "Fungsi ventilasi?", a: 1, o: ["Hemat cat", "Buang uap thinner & debu", "Dinginkan mesin", "Lampu awet"] },
-        { q: "Apa itu Degreasing?", a: 1, o: ["Amplas kilap", "Pembersihan lemak/minyak", "Pemanasan", "Cat hitam"] }
+        { q: "Komponen yang berfungsi sebagai 'otak' pada sistem injeksi CBR 150R adalah?", a: 2, o: ["Injektor", "Fuel Pump", "ECM/ECU", "BAS"] },
+        { q: "Urutan aliran arus kelistrikan injeksi yang benar saat kunci kontak ON?", a: 0, o: ["Aki - Sekring - Kontak - ECM", "Aki - ECM - Injektor - Kontak", "Kontak - Aki - Fuel Pump - ECM", "ECM - Sensor - Aki - Kontak"] },
+        { q: "Sensor yang mendeteksi kemiringan motor saat terjatuh (matic/sport Honda) adalah?", a: 3, o: ["CKP Sensor", "TP Sensor", "EOT Sensor", "Bank Angle Sensor (BAS)"] },
+        { q: "Kedipan MIL 7 kali pada motor Honda menunjukkan masalah pada sensor?", a: 1, o: ["TP Sensor", "EOT/ECT Sensor", "IAT Sensor", "MAP Sensor"] },
+        { q: "Berapa tegangan minimal aki agar sistem injeksi CBR/Sonic bekerja optimal?", a: 2, o: ["10.5 Volt", "11.0 Volt", "12.4 Volt", "14.5 Volt"] },
+        { q: "Kedipan MIL 12 kali menunjukkan gangguan pada komponen?", a: 0, o: ["Injektor", "Fuel Pump", "Koil Pengapian", "Sensor CKP"] },
+        { q: "Alat yang digunakan untuk membaca data sistem injeksi secara digital adalah?", a: 1, o: ["Multitester", "Diagnostic Tools (HIDS)", "Feeler Gauge", "Tachometer"] },
+        { q: "Pada Sonic 150R, sensor ECT berfungsi mengukur suhu?", a: 2, o: ["Udara masuk", "Oli mesin", "Cairan pendingin (Radiator)", "Bahan bakar"] },
+        { q: "Warna kabel massa (negatif) umum pada sistem kelistrikan Honda adalah?", a: 1, o: ["Merah", "Hijau", "Hitam", "Kuning"] },
+        { q: "Fungsi dari Injektor pada rangkaian kelistrikan PGM-FI adalah?", a: 1, o: ["Memompa bensin", "Menyemprotkan bahan bakar", "Memercikkan api", "Mengatur udara"] },
+        { q: "Kedipan MIL 52 kali berarti motor mengalami masalah pada?", a: 3, o: ["ECM", "Injektor", "TP Sensor", "Sensor CKP"] },
+        { q: "Berapa tekanan standar Fuel Pump Honda (CBR/Sonic) dalam satuan psi?", a: 1, o: ["20 psi", "42 psi", "60 psi", "10 psi"] },
+        { q: "Sensor TP (Throttle Position) terletak pada bagian?", a: 1, o: ["Kepala Silinder", "Throttle Body", "Bak Magnet", "Tangki Bensin"] },
+        { q: "Kedipan MIL 1 panjang dan 2 pendek (12) berarti?", a: 0, o: ["Injektor bermasalah", "Sensor O2 rusak", "Fuel Pump macet", "Aki tekor"] },
+        { q: "Koil pengapian menerima sinyal massa untuk memercikkan api dari?", a: 2, o: ["Aki langsung", "Kunci Kontak", "ECM", "Sensor BAS"] },
+        { q: "Berapa tegangan referensi (Input) standar untuk sensor-sensor injeksi dari ECM?", a: 1, o: ["12 Volt", "5 Volt", "9 Volt", "1 Volt"] },
+        { q: "Saat mengukur hambatan (Ohm) injektor, posisi multitester yang benar adalah?", a: 0, o: ["Paralel tanpa arus", "Seri dengan beban", "Dihubungkan ke aki", "Massa ke bodi"] },
+        { q: "Sensor O2 pada motor Honda berfungsi untuk mendeteksi?", a: 2, o: ["Suhu mesin", "Posisi piston", "Kadar oksigen gas buang", "Kecepatan motor"] },
+        { q: "Reset DLC (Data Link Connector) dilakukan dengan menjumper kabel warna?", a: 0, o: ["Coklat dan Hijau", "Merah dan Hitam", "Kuning dan Putih", "Biru dan Orange"] },
+        { q: "Jika BAS (Bank Angle Sensor) aktif, komponen apa yang diputus oleh ECM?", a: 2, o: ["Lampu depan", "Klakson", "Fuel Pump & Pengapian", "Rem"] }
     ];
 
     let currentQuestion = 0;
@@ -207,37 +209,36 @@
     }
 
     function showResult() {
-    document.getElementById('quiz-screen').classList.add('hidden');
-    document.getElementById('result-screen').classList.remove('hidden');
-    document.getElementById('display-name').innerText = studentName;
-    document.getElementById('final-score').innerText = score;
+        document.getElementById('quiz-screen').classList.add('hidden');
+        document.getElementById('result-screen').classList.remove('hidden');
+        document.getElementById('display-name').innerText = studentName;
+        document.getElementById('final-score').innerText = score;
 
-    // URL Web App Anda
-    const urlWebApp = "https://script.google.com/macros/s/AKfycbyjeUuWnxEIPKKNgy7G-gYcdob9OwLhnXGtiVKAugrqZRTb82ij2cWMQBuE1xBGA35t/exec";
+        if(score >= 75) {
+            document.getElementById('status-text').innerText = "STATUS: LULUS KOMPETEN";
+            document.getElementById('status-text').style.color = "green";
+        } else {
+            document.getElementById('status-text').innerText = "STATUS: BELUM KOMPETEN (REMEDIAL)";
+            document.getElementById('status-text').style.color = "red";
+        }
 
-    // Kirim data ke Google Sheets
-    fetch(urlWebApp, {
-        method: "POST",
-        mode: "no-cors", 
-        cache: "no-cache",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            nama: studentName,
-            skor: score
+        const urlWebApp = "https://script.google.com/macros/s/AKfycbyjeUuWnxEIPKKNgy7G-gYcdob9OwLhnXGtiVKAugrqZRTb82ij2cWMQBuE1xBGA35t/exec";
+
+        fetch(urlWebApp, {
+            method: "POST",
+            mode: "no-cors", 
+            cache: "no-cache",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                nama: studentName,
+                skor: score,
+                materi: "Kelistrikan Injeksi"
+            })
         })
-    })
-    .then(() => {
-        console.log("Rekap nilai berhasil dikirim ke Google Sheets.");
-    })
-    .catch((error) => {
-        console.error("Gagal mengirim data:", error);
-    });
-}
+        .then(() => console.log("Data terkirim."))
+        .catch((error) => console.error("Gagal mengirim data:", error));
+    }
 </script>
 
 </body>
-
 </html>
-
