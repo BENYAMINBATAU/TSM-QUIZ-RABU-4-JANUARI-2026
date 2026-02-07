@@ -1,277 +1,137 @@
-<meta name="coinzilla" content="b6d42d0e29f0083c0385c97ee826f445" />
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CONSILA x BENYAMIN BATAU | AI Learning</title>
+    <meta charset="UTF-8">
+    <title>Benyamin Batau | EduTech & Automotive Learning Platform</title>
 
-<style>
-:root{
-  --bg1:#e0f2fe;
-  --bg2:#f5f3ff;
-  --panel:#ffffff;
-  --primary:#0ea5e9;
-  --secondary:#6366f1;
-  --accent:#22d3ee;
-  --text:#0f172a;
-  --muted:#64748b;
-}
+    <!-- COINZILLA DOMAIN VERIFICATION -->
+    <meta name="coinzilla" content="b6d42d0e29f0083c0385c97ee826f445" />
 
-body{
-  margin:0;
-  font-family:Segoe UI,system-ui,sans-serif;
-  background:linear-gradient(135deg,var(--bg1),var(--bg2));
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:15px;
-}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Platform edukasi SMK otomotif, diagnosis busi, quiz interaktif, dan kolaborasi brand crypto edukatif.">
+    <meta name="author" content="Benyamin Batau">
 
-.container{
-  width:100%;
-  max-width:700px;
-  background:var(--panel);
-  border-radius:26px;
-  padding:30px;
-  box-shadow:0 25px 60px rgba(99,102,241,.25);
-}
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+            color: #e6f1ff;
+        }
 
-.hidden{display:none}
+        header {
+            padding: 40px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+        }
 
-.header{text-align:center}
-.header h1{margin:0;color:var(--primary)}
-.header p{margin:6px 0;color:var(--muted)}
+        header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            letter-spacing: 1px;
+        }
 
-.collab{
-  margin-top:10px;
-  padding:10px;
-  border-radius:14px;
-  background:linear-gradient(135deg,#e0f2fe,#ede9fe);
-  font-weight:bold;
-}
+        header p {
+            margin-top: 10px;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
 
-.info{
-  margin:20px 0;
-  padding:14px;
-  border-radius:16px;
-  background:#f0f9ff;
-  border:1px solid #bae6fd;
-}
+        section {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
 
-input{
-  width:100%;
-  padding:14px;
-  border-radius:14px;
-  border:1px solid #c7d2fe;
-  font-size:1rem;
-}
+        .card {
+            background: rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
 
-.btn{
-  width:100%;
-  margin-top:18px;
-  padding:14px;
-  border:none;
-  border-radius:16px;
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
-}
+        h2 {
+            color: #4fd1ff;
+            margin-top: 0;
+        }
 
-.progress-bar{
-  height:10px;
-  background:#e5e7eb;
-  border-radius:10px;
-  overflow:hidden;
-  margin:18px 0;
-}
+        .social a {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(135deg, #ff512f, #dd2476);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
 
-.progress-fill{
-  height:100%;
-  width:0%;
-  background:linear-gradient(90deg,var(--accent),var(--secondary));
-}
+        .social a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
 
-.option-btn{
-  width:100%;
-  padding:14px;
-  margin:10px 0;
-  border-radius:16px;
-  background:#f8fafc;
-  border:1px solid #c7d2fe;
-  cursor:pointer;
-}
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
 
-.option-btn:hover{background:#e0f2fe}
-
-.score{
-  font-size:4rem;
-  font-weight:bold;
-  color:var(--secondary);
-}
-
-/* ==== SOCIAL MEDIA FUTURISTIC ==== */
-.social{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-  margin:25px 0;
-}
-
-.social a{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:14px;
-  border-radius:18px;
-  text-decoration:none;
-  font-weight:bold;
-  color:#0f172a;
-  background:linear-gradient(135deg,#f0f9ff,#ede9fe);
-  border:1px solid #c7d2fe;
-  box-shadow:0 10px 25px rgba(14,165,233,.25);
-  transition:.25s;
-}
-
-.social a:hover{
-  transform:translateY(-3px);
-  box-shadow:0 15px 35px rgba(99,102,241,.35);
-}
-
-.icon{
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:1.4rem;
-  color:white;
-}
-
-.fb{background:#1877f2}
-.yt{background:#ff0000}
-.tt{background:#000000}
-.tw{background:#0ea5e9}
-
-.footer{
-  text-align:center;
-  font-size:.75rem;
-  color:var(--muted);
-}
-</style>
+        .badge {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 14px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #00ffcc, #00b09b);
+            color: #003333;
+            font-weight: bold;
+            font-size: 0.85em;
+        }
+    </style>
 </head>
 
 <body>
-<div class="container">
 
-<div id="start-screen">
-  <div class="header">
-    <h1>KELISTRIKAN INJEKSI PGM-FI</h1>
-    <p>CBR & Sonic 150R</p>
-    <div class="collab">CONSILA × BENYAMIN BATAU</div>
-  </div>
+<header>
+    <h1>Benyamin Batau</h1>
+    <p>SMK Automotive Education • Interactive Quiz • AI-Assisted Learning</p>
+    <div class="badge">Partnered Content • Coinzilla Ready</div>
+</header>
 
-  <div class="info">
-    Media evaluasi pembelajaran berbasis AI untuk siswa SMK Teknik Sepeda Motor.
-  </div>
+<section>
+    <div class="card">
+        <h2>Tentang Platform</h2>
+        <p>
+            Website ini merupakan platform edukasi berbasis web yang dikembangkan untuk pembelajaran
+            Teknik Sepeda Motor (TSM) di SMK. Fokus utama pada diagnosis busi, sistem pengapian,
+            dan kuis interaktif berbasis visual.
+        </p>
+    </div>
 
-  <input id="student-name" placeholder="Nama lengkap siswa">
-  <button class="btn" onclick="startQuiz()">MULAI EVALUASI AI</button>
-</div>
+    <div class="card">
+        <h2>Kolaborasi & Promosi Brand</h2>
+        <p>
+            Platform ini terbuka untuk kolaborasi promosi brand edukatif dan teknologi,
+            termasuk kampanye iklan berbasis crypto melalui jaringan Coinzilla.
+        </p>
+    </div>
 
-<div id="quiz-screen" class="hidden">
-  <div id="q-number"></div>
-  <div class="progress-bar"><div id="progress" class="progress-fill"></div></div>
-  <p id="q-text"></p>
-  <div id="options-container"></div>
-</div>
+    <div class="card">
+        <h2>Media Sosial Resmi</h2>
+        <div class="social">
+            <a href="https://web.facebook.com/benyamin.batau?locale=id_ID" target="_blank">Facebook</a>
+            <a href="https://www.youtube.com/@BENYAMINBATAU" target="_blank">YouTube</a>
+            <a href="https://www.tiktok.com/@benyaminbatau" target="_blank">TikTok</a>
+            <a href="https://x.com/BenyaminB11K" target="_blank">X (Twitter)</a>
+        </div>
+    </div>
+</section>
 
-<div id="result-screen" class="hidden" style="text-align:center">
-  <h2>HASIL PEMBELAJARAN</h2>
-  <p id="display-name"></p>
-  <div class="score" id="final-score">0</div>
-  <p id="status-text"></p>
-
-  <div class="social">
-    <a href="https://web.facebook.com/benyamin.batau?locale=id_ID" target="_blank">
-      <div class="icon fb">f</div> Facebook
-    </a>
-    <a href="https://www.youtube.com/@BENYAMINBATAU" target="_blank">
-      <div class="icon yt">▶</div> YouTube
-    </a>
-    <a href="https://www.tiktok.com/@benyaminbatau" target="_blank">
-      <div class="icon tt">♪</div> TikTok
-    </a>
-    <a href="https://x.com/BenyaminB11K" target="_blank">
-      <div class="icon tw">X</div> X / Twitter
-    </a>
-  </div>
-
-  <div class="footer">
-    © BENYAMIN BATAU • Powered by CONSILA AI
-  </div>
-
-  <button class="btn" onclick="location.reload()">SELESAI</button>
-</div>
-
-</div>
-
-<script>
-const quizData=[
- {q:"Otak sistem injeksi Honda adalah?",a:2,o:["Injektor","Fuel Pump","ECM/ECU","BAS"]},
- {q:"Tegangan referensi sensor dari ECM?",a:1,o:["12V","5V","9V","1V"]},
- {q:"Sensor pendeteksi motor jatuh?",a:3,o:["CKP","TP","ECT","BAS"]},
- {q:"Fungsi injektor?",a:1,o:["Pompa bensin","Semprot BBM","Percik api","Atur udara"]},
- {q:"Tegangan aki minimal sistem injeksi?",a:2,o:["10.5V","11V","12.4V","14.5V"]}
-];
-
-let i=0,score=0,name="";
-
-function startQuiz(){
- name=document.getElementById("student-name").value;
- if(name.trim().length<3){alert("Nama tidak valid");return;}
- document.getElementById("start-screen").classList.add("hidden");
- document.getElementById("quiz-screen").classList.remove("hidden");
- showQ();
-}
-
-function showQ(){
- let q=quizData[i];
- document.getElementById("q-number").innerText=`Soal ${i+1}/${quizData.length}`;
- document.getElementById("q-text").innerText=q.q;
- let box=document.getElementById("options-container");
- box.innerHTML="";
- q.o.forEach((o,idx)=>{
-   let b=document.createElement("button");
-   b.className="option-btn";
-   b.innerText=o;
-   b.onclick=()=>next(idx);
-   box.appendChild(b);
- });
- document.getElementById("progress").style.width=(i/quizData.length*100)+"%";
-}
-
-function next(x){
- if(x===quizData[i].a)score+=20;
- i++;
- if(i<quizData.length)showQ();
- else showResult();
-}
-
-function showResult(){
- document.getElementById("quiz-screen").classList.add("hidden");
- document.getElementById("result-screen").classList.remove("hidden");
- document.getElementById("display-name").innerText=name;
- document.getElementById("final-score").innerText=score;
- let s=document.getElementById("status-text");
- s.innerText=score>=75?"KOMPETEN":"PERLU PENGUATAN";
- s.style.color=score>=75?"#16a34a":"#dc2626";
-}
-</script>
+<footer>
+    © 2026 Benyamin Batau • Educational Web Platform • Crypto Ads Ready
+</footer>
 
 </body>
 </html>
-
